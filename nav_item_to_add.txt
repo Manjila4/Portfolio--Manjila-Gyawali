@@ -1,0 +1,2 @@
+<!-- Add this nav item to every page navbar, inside <ul class="navbar-nav gap-3"> -->
+<li class="nav-item"><a class="nav-link" href="cet138.html">CET138</a></li>

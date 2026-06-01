@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CET138 Portfolio | Manjila Gyawali</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-md fixed-top py-2" id="mainNav">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand logo-badge" href="index.html">MG</a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="cet138.html">CET138</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero cet-hero">
+    <div class="container text-center">
+      <p class="section-tag justify-content-center">ASSIGNMENT 1 E-PORTFOLIO</p>
+      <h1 class="display-4 fw-bold mt-3">CET138 Full Stack Development</h1>
+      <p class="hero-subtitle mx-auto mt-3">
+        This page demonstrates my understanding of full stack development, HTML, CSS,
+        Bootstrap Framework, and JavaScript through explanations and working examples.
+      </p>
+    </div>
+  </header>
+
+  <!-- QUICK NAV -->
+  <section class="cet-quick-nav py-4">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#fullstack">Full Stack</a>
+        <a href="#html-demo">HTML</a>
+        <a href="#css-demo">CSS</a>
+        <a href="#bootstrap-demo">Bootstrap</a>
+        <a href="#javascript-demo">JavaScript</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL STACK -->
+  <section class="section-pad" id="fullstack">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <p class="section-tag">SECTION 1</p>
+          <h2 class="section-title">What is Full Stack Development?</h2>
+          <p class="text-muted">
+            Full stack development means creating both the client-side and server-side
+            parts of a web application. A full stack developer understands how the user
+            interface, application logic, and database work together.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="stack-diagram">
+            <div class="stack-layer">
+              <span>Frontend</span>
+              <p>HTML, CSS, Bootstrap, JavaScript</p>
+            </div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-layer">
+              <span>Backend</span>
+              <p>Server-side logic, APIs, authentication</p>
+            </div>
+            <div class="stack-arrow">↓</div>
+            <div class="stack-layer">
+              <span>Database</span>
+              <p>Stores and manages application data</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HTML -->
+  <section class="section-pad soft-section" id="html-demo">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <p class="section-tag">SECTION 2</p>
+          <h2 class="section-title">HTML</h2>
+          <p class="text-muted">
+            HTML is used to structure web pages. In this portfolio, I used semantic
+            HTML elements such as nav, header, section, form, label, input, and footer.
+            These elements make the website easier to read, maintain, and understand.
+          </p>
+
+          <div class="example-list">
+            <span>&lt;nav&gt; for navigation menu</span>
+            <span>&lt;section&gt; for separating content areas</span>
+            <span>&lt;form&gt; for collecting user input</span>
+            <span>&lt;label&gt; for accessible form fields</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="demo-card">
+            <h3>Working HTML Example</h3>
+            <form class="mini-html-form">
+              <label for="demoName">Name</label>
+              <input id="demoName" type="text" placeholder="Enter your name">
+
+              <label for="demoCourse">Course</label>
+              <input id="demoCourse" type="text" placeholder="CET138 Full Stack Development">
+
+              <button type="button">HTML Form Button</button>
+            </form>
+            <p class="demo-note">
+              This example demonstrates labels, input fields, and a button inside a form structure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSS -->
+  <section class="section-pad" id="css-demo">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <p class="section-tag">SECTION 3</p>
+          <h2 class="section-title">CSS</h2>
+          <p class="text-muted">
+            CSS controls the visual design of a website. In my portfolio, CSS is used
+            for colours, spacing, shadows, typography, responsive layout, hover effects,
+            gradients, and card design.
+          </p>
+          <p class="text-muted">
+            The example changes appearance when hovered, showing how CSS can improve
+            user experience through interaction and visual feedback.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="css-demo-box">
+            <div class="css-card-example">
+              <div class="card-icon">🎨</div>
+              <h3>CSS Styled Card</h3>
+              <p>Hover over this card to see transform, shadow, border colour, and transition effects.</p>
+            </div>
+            <div class="css-code-preview">
+              <code>
+.card:hover {<br>
+&nbsp;&nbsp;transform: translateY(-6px);<br>
+&nbsp;&nbsp;box-shadow: 0 24px 60px rgba(24,184,102,.12);<br>
+}
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOTSTRAP -->
+  <section class="section-pad soft-section" id="bootstrap-demo">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-tag justify-content-center">SECTION 4</p>
+        <h2 class="section-title">Bootstrap Framework</h2>
+        <p class="hero-subtitle mx-auto">
+          Bootstrap is a front-end framework that helps developers build responsive
+          websites quickly using ready-made classes and components.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card h-100">
+            <div class="card-icon">📱</div>
+            <h3>Responsive Grid</h3>
+            <p>This page uses Bootstrap rows and columns such as col-md-4 and col-lg-6 to adapt content across screen sizes.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card h-100">
+            <div class="card-icon">🧭</div>
+            <h3>Navbar</h3>
+            <p>The navigation bar uses Bootstrap navbar classes and collapses into a mobile menu on smaller screens.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="feature-card h-100">
+            <div class="card-icon">🧩</div>
+            <h3>Components</h3>
+            <p>Bootstrap components such as cards, accordion, form controls, buttons, and alerts are used in this portfolio.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion custom-accordion mt-5" id="bootstrapAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bootOne">
+              Bootstrap Accordion Example
+            </button>
+          </h2>
+          <div id="bootOne" class="accordion-collapse collapse show" data-bs-parent="#bootstrapAccordion">
+            <div class="accordion-body">
+              This is a working Bootstrap accordion. It demonstrates how Bootstrap JavaScript components can show and hide content without writing custom code for the collapse behaviour.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bootTwo">
+              Bootstrap Form Example
+            </button>
+          </h2>
+          <div id="bootTwo" class="accordion-collapse collapse" data-bs-parent="#bootstrapAccordion">
+            <div class="accordion-body">
+              Forms in the contact page use Bootstrap classes such as form-control, form-label, form-select, invalid-feedback, and alert.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <section class="section-pad" id="javascript-demo">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <p class="section-tag">SECTION 5</p>
+          <h2 class="section-title">JavaScript</h2>
+          <p class="text-muted">
+            JavaScript adds interactivity to static web pages. In this portfolio,
+            JavaScript is used for contact form validation, scroll animations,
+            active navigation links, skill progress bars, and interactive examples.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="demo-card">
+            <h3>Working JavaScript Example</h3>
+            <p class="text-muted mb-3">
+              Click the button to increase the counter. This demonstrates DOM selection,
+              event handling, and updating page content dynamically.
+            </p>
+
+            <div class="counter-demo">
+              <button class="btn-main" id="cetCounterBtn" type="button">Click Me</button>
+              <div class="counter-number">
+                <span id="cetCounterValue">0</span>
+                <small>clicks</small>
+              </div>
+            </div>
+
+            <hr>
+
+            <label for="colourSelect" class="form-label">Change demo box colour using JavaScript</label>
+            <select id="colourSelect" class="form-select">
+              <option value="green">Green</option>
+              <option value="dark">Dark</option>
+              <option value="blue">Blue</option>
+            </select>
+
+            <div id="jsColourBox" class="js-colour-box mt-3">
+              JavaScript changed my style.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="section-pad soft-section">
+    <div class="container">
+      <div class="summary-box text-center">
+        <p class="section-tag justify-content-center">CONCLUSION</p>
+        <h2 class="section-title">What this ePortfolio demonstrates</h2>
+        <p class="hero-subtitle mx-auto">
+          This ePortfolio demonstrates my understanding of static and dynamic web application development.
+          I used HTML for structure, CSS for styling, Bootstrap for responsive components, and JavaScript
+          for interactivity. Together, these technologies support the front-end side of full stack development.
+        </p>
+        <a href="contact.html" class="btn-main mt-3 d-inline-flex text-decoration-none">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="container text-center">
+      <p class="mb-3">© 2026 Manjila Gyawali | CET138 Full Stack Development Portfolio</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="index.html" class="social-icon">Home</a>
+        <a href="service.html" class="social-icon">Services</a>
+        <a href="contact.html" class="social-icon">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
