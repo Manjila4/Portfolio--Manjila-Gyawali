@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
 
-      const response = await fetch('http://127.0.0.1:5050/api/contact', {
+      const response = await fetch("https://portfolio-manjila-gyawali.onrender.com/api/contact", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
