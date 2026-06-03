@@ -9,21 +9,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// MongoDB Connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected successfully"))
   .catch((error) => console.log("MongoDB connection error:", error));
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+// Email Transport
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
+// Contact Schema
 const contactSchema = new mongoose.Schema(
   {
     name: String,
@@ -37,51 +38,78 @@ const contactSchema = new mongoose.Schema(
 
 const Contact = mongoose.model("Contact", contactSchema);
 
+// Home Route
 app.get("/", (req, res) => {
   res.send("Portfolio backend is running");
 });
 
+// Contact Form Route
 app.post("/api/contact", async (req, res) => {
   try {
+    // Save to MongoDB first
     const contact = new Contact(req.body);
     await contact.save();
 
-    const info = await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      subject: `Portfolio Contact - ${contact.name}`,
-      replyTo: contact.email,
-      html: `
-        <h2>New Contact Message</h2>
-        <p><strong>Name:</strong> ${contact.name}</p>
-        <p><strong>Email:</strong> ${contact.email}</p>
-        <p><strong>Phone:</strong> ${contact.phone}</p>
-        <p><strong>Service:</strong> ${contact.service}</p>
-        <p><strong>Message:</strong> ${contact.message}</p>
-      `,
-    });
-
     console.log("Saved:", contact);
-    console.log("Email sent:", info.messageId);
 
+    // Send response immediately
     res.json({
       success: true,
-      message: "Message saved successfully",
+      message: "Message submitted successfully",
     });
+
+    // Send email in background
+    transporter
+      .sendMail({
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: `Portfolio Contact - ${contact.name}`,
+        replyTo: contact.email,
+        html: `
+          <h2>New Contact Message</h2>
+
+          <p><strong>Name:</strong> ${contact.name}</p>
+          <p><strong>Email:</strong> ${contact.email}</p>
+          <p><strong>Phone:</strong> ${contact.phone}</p>
+          <p><strong>Service:</strong> ${contact.service}</p>
+          <p><strong>Message:</strong></p>
+          <p>${contact.message}</p>
+
+          <hr>
+
+          <p>
+            Submitted at:
+            ${new Date().toLocaleString()}
+          </p>
+        `,
+      })
+      .then((info) => {
+        console.log("Email sent:", info.messageId);
+      })
+      .catch((emailError) => {
+        console.log("Email Error:", emailError);
+      });
   } catch (error) {
     console.log("Error:", error);
+
     res.status(500).json({
       success: false,
-      message: "Database or email error",
+      message: "Database error",
     });
   }
 });
 
+// Admin Route
 app.get("/api/contacts", async (req, res) => {
   try {
-    const contacts = await Contact.find().sort({ createdAt: -1 });
+    const contacts = await Contact.find().sort({
+      createdAt: -1,
+    });
+
     res.json(contacts);
   } catch (error) {
+    console.log(error);
+
     res.status(500).json({
       message: "Failed to fetch contacts",
     });
