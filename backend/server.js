@@ -44,7 +44,7 @@ app.post("/api/contact", async (req, res) => {
     const contact = new Contact(req.body);
     await contact.save();
 
-    await transporter.sendMail({
+    transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "New Portfolio Contact Form Message",
