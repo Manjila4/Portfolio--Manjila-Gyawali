@@ -44,10 +44,11 @@ app.post("/api/contact", async (req, res) => {
     const contact = new Contact(req.body);
     await contact.save();
 
-    transporter.sendMail({
-      from: process.env.EMAIL_USER,
+    const info = await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      subject: "New Portfolio Contact Form Message",
+      subject: `Portfolio Contact - ${contact.name}`,
+      replyTo: contact.email,
       html: `
         <h2>New Contact Message</h2>
         <p><strong>Name:</strong> ${contact.name}</p>
@@ -59,7 +60,7 @@ app.post("/api/contact", async (req, res) => {
     });
 
     console.log("Saved:", contact);
-    console.log("Email sent successfully");
+    console.log("Email sent:", info.messageId);
 
     res.json({
       success: true,
